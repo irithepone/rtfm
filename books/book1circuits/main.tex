@@ -13,4 +13,128 @@
 
 \section{Introduction}
 A PDF guide to redstone.
+
+\section{Logic Circuits}
+Outputs a steady signal, depending on one or more input signals.  
+
+\subsection{NOT}
+Output LOW if the input is HIGH\bigskip\\
+\begin{tabular}{|c|c|}\hline
+$A$ & $\overline{A}$ \\\hline
+$1$ & $0$ \\\hline
+$0$ & $1$ \\\hline
+\end{tabular}
+
+\subsection{NOR}
+Output LOW if any inputs are HIGH\bigskip\\
+\begin{tabular}{|c|c|c|}\hline
+$A$ & $B$ & $\overline{A+B}$ \\\hline
+$1$ & $1$ & $0$ \\\hline
+$1$ & $0$ & $0$ \\\hline
+$0$ & $1$ & $0$ \\\hline
+$0$ & $0$ & $1$ \\\hline
+\end{tabular}
+
+\subsection{OR}
+Output HIGH if any inputs are HIGH \bigskip\\
+\begin{tabular}{|c|c|c|}\hline
+$A$ & $B$ & $A+B$ \\\hline
+$1$ & $1$ & $1$ \\\hline
+$1$ & $0$ & $1$ \\\hline
+$0$ & $1$ & $1$ \\\hline
+$0$ & $0$ & $0$ \\\hline
+\end{tabular}
+
+\subsection{NAND}
+Output LOW if all inputs HIGH \bigskip\\
+\begin{tabular}{|c|c|c|}\hline
+$A$ & $B$ & $\overline{A\cdot B}$ \\\hline
+$1$ & $1$ & $0$ \\\hline
+$1$ & $0$ & $1$ \\\hline
+$0$ & $1$ & $1$ \\\hline
+$0$ & $0$ & $1$ \\\hline
+\end{tabular}
+
+\subsection{AND}
+Output HIGH if all inputs HIGH. \bigskip\\
+\begin{tabular}{|c|c|c|}\hline
+$A$ & $B$ & $A\cdot B$ \\\hline
+$1$ & $1$ & $1$ \\\hline
+$1$ & $0$ & $0$ \\\hline
+$0$ & $1$ & $0$ \\\hline
+$0$ & $0$ & $0$ \\\hline
+\end{tabular}
+
+\subsection{IMPLIES}
+
+\begin{tabular}{|c|c|c|}\hline
+$A$ & $B$ & $A\rightarrow B$ \\\hline
+$1$ & $1$ & $1$ \\\hline
+$1$ & $0$ & $0$ \\\hline
+$0$ & $1$ & $1$ \\\hline
+$0$ & $0$ & $1$ \\\hline
+\end{tabular}
+
+\subsection{XOR}
+Output HIGH if both inputs are the different. \bigskip\\
+\begin{tabular}{|c|c|c|}\hline
+$A$ & $B$ & $A \bigoplus B$ \\\hline
+$1$ & $1$ & $0$ \\\hline
+$1$ & $0$ & $1$ \\\hline
+$0$ & $1$ & $1$ \\\hline
+$0$ & $0$ & $0$ \\\hline
+\end{tabular}
+
+\subsection{XNOR}
+Output HIGH if both inputs are the same. \bigskip\\
+\begin{tabular}{|c|c|c|}\hline
+$A$ & $B$ & $\overline{A \bigoplus B}$ \\\hline
+$1$ & $1$ & $1$ \\\hline
+$1$ & $0$ & $0$ \\\hline
+$0$ & $1$ & $0$ \\\hline
+$0$ & $0$ & $1$ \\\hline
+\end{tabular}
+
 \pagebreak
+
+\section{Memory Circuits}
+Stores an outputs a single logical state.  Latches respond to the level of a signal, while Flip-Flops respond to a change in a signal. 
+
+\subsection{RS NOR Latch}
+Two input Set Reset latch. Q is unchanged when both R and S are LOW. \bigskip\\
+\begin{tabular}{|c|c|c|c|c|}\hline
+$S$ & $R$ & $Q(t+1)$ & $\overline{Q(t+1)}$ & Note\\\hline
+$1$ & $1$ & $?$ & $?$ & Invalid State\\\hline
+$1$ & $0$ & $1$ & $0$ & Set Statete\\\hline
+$0$ & $1$ & $0$ & $1$ & Reset State\\\hline
+$0$ & $0$ & $Q(t)$ & $\overline{Q(t)}$ & No Change\\\hline
+\end{tabular}
+
+\subsection{RS NAND Latch}
+Two input Set Reset latch. Q is unchanged when both R and S are HIGH. \bigskip\\
+\begin{tabular}{|c|c|c|c|c|}\hline
+$S$ & $R$ & $Q(t+1)$ & $\overline{Q(t+1)}$ & Note\\\hline
+$1$ & $1$ & $?$ & $?$ & No Change\\\hline
+$1$ & $0$ & $1$ & $0$ & Set\\\hline
+$0$ & $1$ & $0$ & $1$ & Reset\\\hline
+$0$ & $0$ & $Q(t)$ & $\overline{Q(t)}$ & Hold State\\\hline
+\end{tabular}
+
+\subsection{Gated D Latch}
+Two input Data latch. . \bigskip\\
+\begin{tabular}{|c|c|c|c|}\hline
+$D$ & $C$ & $Q(t+1)$ & Note\\\hline
+$1$ & $1$ & $?$ & No Change\\\hline
+$1$ & $0$ & $1$ & No Change\\\hline
+$0$ & $1$ & $0$ & Reset\\\hline
+$0$ & $0$ & $Q(t)$ & Hold State\\\hline
+\end{tabular}
+
+\section{Pulse Circuits}
+
+\section{Clock Circuits}
+
+\section{Miscellaneous Circuits}
+\pagebreak
+
+\end{document}
